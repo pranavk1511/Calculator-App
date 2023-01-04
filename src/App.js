@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import './styles.css'
 
-const ACTIONS = {
+export const ACTIONS = {
   ADD_DIGITS : 'add-digits',
   CHOOSE_OPERATION : 'choose-operation',
   CLEAR : 'clear',
@@ -25,6 +25,8 @@ function reducer(state,{type,payload}){
 
 function App() {
   const [{currentOperand , prevOperand, operation},dispatch]=useReducer(reducer,{})
+  
+  dispatch({type: ACTIONS.ADD_DIGITS,payload : { digit:1 }})
   return (
     <div className="calculator-grid">
       <div className="output">
